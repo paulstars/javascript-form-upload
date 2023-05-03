@@ -3,7 +3,7 @@ const cors = require("cors");
 const multer = require("multer");
 
 const app = express();
-const port = 3000;
+const port = 5000;
 
 const corsOptions = {
   origin: "http://localhost:5500",
@@ -11,7 +11,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-//const upload = multer({ dest: "./images/" });
+// const upload = multer({ dest: "./images/" });
 const storage = multer.diskStorage({
   destination: "./images/",
   filename: function (request, file, callback) {
@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post("/", upload.single("avatar"), (request, response) => {
+app.post("/", upload.single("image"), (request, response) => {
   console.log(request.body, request.file);
   response.json("Vielen Dank!");
 });
