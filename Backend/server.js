@@ -23,7 +23,7 @@ const upload = multer({ storage: storage });
 
 app.post("/", upload.single("image"), (request, response) => {
   console.log(request.body, request.file);
-  response.json("Vielen Dank!");
+  response.send("Ich bin der Inhalt!");
 });
 
 app.listen(port, () => console.info("Server läuft!"));
