@@ -3,7 +3,7 @@ const cors = require("cors");
 const multer = require("multer");
 
 const app = express();
-const port = 5000;
+const port = 3001;
 
 const corsOptions = {
   origin: "http://localhost:5500",
